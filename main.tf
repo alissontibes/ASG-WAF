@@ -53,13 +53,12 @@ module "security_groups" {
 module "cloudguard_waf" {
   source = "./modules/cloudguard-waf"
 
-  waf_instance_name = "my-cloudguard-waf"
-  vpc_id            = module.vpc.vpc_id
-  subnet_id         = module.subnets.public_subnet_ids[0]
-  security_group_id = module.security_groups.waf_sg_id
-  key_name          = var.key_name
+  ssh_key_name      = var.ssh_key_name
+  public_subnet_id  = var.public_subnet_id
+  waf_ami_id        = var.waf_ami_id
   infinity_token    = var.infinity_token
-  instance_type     = var.waf_instance_type
-  ami_id            = var.waf_ami_id
+  security_group_id = module.security_groups.waf_sg_id
+  waf_instance_type = "m5.xlarge"
 }
+
 
