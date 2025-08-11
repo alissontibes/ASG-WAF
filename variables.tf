@@ -6,9 +6,9 @@ variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
 
-variable "public_subnets" {
-  type    = list(string)
-  default = ["10.0.1.0/24", "10.0.2.0/24"]
+variable "public_subnet_id" {
+  description = "Public subnet ID for launching instances"
+  type        = string
 }
 
 variable "private_subnets" {
@@ -27,10 +27,20 @@ variable "waf_instance_type" {
 }
 
 variable "ssh_key_name" {
-  description = "Existing AWS EC2 key pair name for SSH access"
+  description = "Name of the EC2 key pair for SSH access"
+  type        = string
+}
+
+
+
+variable "waf_ami_id" {
+  description = "AMI ID for CloudGuard WAF"
+  type        = string
+  default     = ""
 }
 
 variable "infinity_token" {
-  description = "Infinity Portal API token"
+  description = "Check Point Infinity Token"
+  type        = string
   sensitive   = true
 }
