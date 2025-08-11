@@ -1,4 +1,4 @@
-resource "aws_security_group" "default_sg" {
+resource "aws_security_group" "waf" {
   name        = "waf-sg"
   description = "WAF Default security group"
   vpc_id      = var.vpc_id
