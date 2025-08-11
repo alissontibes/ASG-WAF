@@ -1,25 +1,39 @@
-variable "vpc_id" {}
-variable "subnet_id" {}
-variable "security_group_id" {}
-variable "instance_type" {}
-variable "key_name" {}
-variable "infinity_token" {
-  sensitive = true
+variable "waf_instance_type" {
+  description = "Instance type for the CloudGuard WAF"
+  type        = string
+  default     = "m5.xlarge"
 }
+
+variable "ssh_key_name" {
+  description = "SSH key name for EC2 instance access"
+  type        = string
+}
+
+variable "public_subnet_id" {
+  description = "Subnet ID where instances will be launched"
+  type        = string
+}
+
 variable "waf_ami_id" {
-  description = "AMI ID for CloudGuard WAF"
+  description = "AMI ID for CloudGuard WAF (optional if using SSM alias)"
   type        = string
   default     = ""
 }
 
-variable "waf_instance_name" {
-  description = "Name for the WAF instance"
+variable "infinity_token" {
+  description = "Check Point Infinity token"
   type        = string
-  default     = "cloudguard-waf"
+  sensitive   = true
 }
 
-variable "ami_id" {
-  description = "AMI ID (alternative name)"
+variable "key_name" {
+  description = "EC2 key pair name"
+  type        = string
+  default     = ""  # or remove if not used
+}
+
+variable "security_group_id" {
+  description = "Security Group ID for the WAF instances"
   type        = string
   default     = ""
 }
