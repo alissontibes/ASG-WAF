@@ -1,5 +1,5 @@
-variable "waf_instance_type" {
-  description = "Instance type for the CloudGuard WAF"
+variable "instance_type" {
+  description = "EC2 instance type for the WAF"
   type        = string
 }
 
@@ -8,8 +8,8 @@ variable "ssh_key_name" {
   type        = string
 }
 
-variable "public_subnet_id" {
-  description = "Subnet ID where instances will be launched"
+variable "subnet_id" {
+  description = "Subnet ID where the WAF instance will be deployed"
   type        = string
 }
 
