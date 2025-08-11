@@ -45,3 +45,21 @@ module "security_groups" {
   source  = "./modules/security-groups"
   vpc_id  = module.vpc.vpc_id
 }
+
+
+# ========================================
+# Check Point CloudGuard WAF
+# ========================================
+module "cloudguard_waf" {
+  source = "./modules/cloudguard-waf"
+
+  waf_instance_name = "my-cloudguard-waf"
+  vpc_id            = module.vpc.vpc_id
+  subnet_id         = module.subnets.public_subnet_ids[0]
+  security_group_id = module.security_groups.waf_sg_id
+  key_name          = var.key_name
+  infinity_token    = var.infinity_token
+  instance_type     = var.waf_instance_type
+  ami_id            = var.waf_ami_id
+}
+
