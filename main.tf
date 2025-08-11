@@ -58,7 +58,8 @@ module "cloudguard_waf" {
   waf_ami_id        = data.aws_ami.cloudguard_waf.id
   infinity_token    = var.infinity_token
   security_group_id = module.security_groups.waf_sg_id
-  waf_instance_type = var.waf_instance_type
+  instance_type = var.waf_instance_type       # example variable from root variables.tf
+
 }
 
 
