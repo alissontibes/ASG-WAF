@@ -6,10 +6,12 @@ variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
 
-variable "public_subnet_id" {
-  description = "Public subnet ID for launching instances"
-  type        = string
+variable "public_subnets" {
+  description = "List of public subnet CIDR blocks"
+  type        = list(string)
+  default     = ["10.0.10.0/24", "10.0.20.0/24"]  # example CIDRs
 }
+
 
 variable "private_subnets" {
   type    = list(string)
