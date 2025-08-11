@@ -54,11 +54,11 @@ module "cloudguard_waf" {
   source = "./modules/cloudguard-waf"
 
   ssh_key_name      = var.ssh_key_name
-  public_subnet_id  = var.public_subnet_id
+  public_subnet_id  = module.subnets.public_subnet_ids[0]  # take first subnet dynamically
   waf_ami_id        = var.waf_ami_id
   infinity_token    = var.infinity_token
   security_group_id = module.security_groups.waf_sg_id
-  waf_instance_type = "m5.xlarge"
+  waf_instance_type = var.waf_instance_type
 }
 
 
