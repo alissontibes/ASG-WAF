@@ -1,7 +1,6 @@
 variable "waf_instance_type" {
   description = "Instance type for the CloudGuard WAF"
   type        = string
-  default     = "m5.xlarge"
 }
 
 variable "ssh_key_name" {
