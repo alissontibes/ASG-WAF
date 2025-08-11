@@ -20,3 +20,17 @@ variable "availability_zones" {
   type    = list(string)
   default = ["us-east-1a", "us-east-1b"]
 }
+
+variable "waf_instance_type" {
+  default     = "m5.xlarge"
+  description = "Instance type for the CloudGuard WAF"
+}
+
+variable "ssh_key_name" {
+  description = "Existing AWS EC2 key pair name for SSH access"
+}
+
+variable "infinity_token" {
+  description = "Infinity Portal API token"
+  sensitive   = true
+}
