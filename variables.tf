@@ -24,16 +24,15 @@ variable "availability_zones" {
 }
 
 variable "waf_instance_type" {
-  default     = "m5.xlarge"
-  description = "Instance type for the CloudGuard WAF"
+  description = "Instance type for CloudGuard WAF instances"
+  type        = string
+  default     = "c5.xlarge"  # or whatever default you want
 }
 
 variable "ssh_key_name" {
   description = "Name of the EC2 key pair for SSH access"
   type        = string
 }
-
-
 
 variable "waf_ami_id" {
   description = "AMI ID for CloudGuard WAF"
